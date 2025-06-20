@@ -1,14 +1,14 @@
 import { cx } from "app/utils";
 import { FC } from "react";
 
-type TIconName = "location" | "company" | "externalUrl";
+type TIconName = "location" | "company" | "externalUrl" | "mail" | "mailOpened";
 
 type TIconProps = {
   name: TIconName;
   className?: string;
 };
 
-const Icon: FC<TIconProps> = ({ name, className }) => {
+const SvgIcon: FC<TIconProps> = ({ name, className }) => {
   switch (name) {
     case "location":
       return (
@@ -57,6 +57,7 @@ const Icon: FC<TIconProps> = ({ name, className }) => {
           viewBox="0 0 12 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className={cx(className)}
         >
           <path
             d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
@@ -64,7 +65,41 @@ const Icon: FC<TIconProps> = ({ name, className }) => {
           />
         </svg>
       );
+    case "mail":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className={cx(className)}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+          />
+        </svg>
+      );
+    case "mailOpened":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className={cx(className)}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z"
+          />
+        </svg>
+      );
   }
 };
 
-export { Icon };
+export { SvgIcon };

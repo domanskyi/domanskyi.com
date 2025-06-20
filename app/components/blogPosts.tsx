@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatDate } from "app/blog/utils";
 import { FC } from "react";
+import { SvgIcon } from "./svgIcon";
 
 type TBlogPostsProps = {
   posts: {
@@ -38,17 +39,22 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
               <div>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight flex items-center">
                   {post.title}
+                  {post.external && (
+                    <SvgIcon
+                      name="externalUrl"
+                      className="ml-2 transition-all text-neutral-600 hover:text-neutral-800"
+                    />
+                  )}
                 </p>
                 <span className="text-neutral-400 text-sm">
                   {post.tags.join(", ")}
                 </span>
               </div>
 
-              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-center gap-1">
+              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-center gap-1 text-nowrap">
                 {formatDate(new Date(post.publishedAt), false)}
-                <span className="text-sm">{languageMarker[post.language]}</span>
               </p>
             </div>
           </Link>

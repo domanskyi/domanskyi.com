@@ -1,6 +1,6 @@
-import { BlogPosts } from "app/components/posts";
+import { BlogPosts } from "app/components/blogPosts";
 import { getBlogPosts } from "./utils";
-import { Icon } from "app/components/svgIcon";
+import { SvgIcon } from "app/components/svgIcon";
 
 export const metadata = {
   title: "Blog",
@@ -13,17 +13,15 @@ export default function Page() {
   return (
     <section>
       <div className="flex items-start justify-between">
-        <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-          My Blog
-        </h1>
+        <h1 className="font-semibold mb-2 tracking-tighter">Blog</h1>
         <a
           className="flex items-center transition-all text-neutral-600 hover:text-neutral-800 dark:hover:text-neutral-100"
           rel="noopener noreferrer"
           target="_blank"
           href="/rss"
         >
-          <Icon name="externalUrl" />
-          <p className="ml-2 h-7">rss</p>
+          <p className="mr-2 h-7">rss</p>
+          <SvgIcon name="externalUrl" />
         </a>
       </div>
       <p className="mb-8 text-sm text-neutral-600 dark:text-neutral-400">

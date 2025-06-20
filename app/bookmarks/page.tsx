@@ -1,4 +1,4 @@
-import { CustomMDX } from "app/components/mdx";
+import { CustomMDX } from "app/components/customMDX";
 
 export const metadata = {
   title: "Bookmarks",
@@ -8,9 +8,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        My Bookmarks
-      </h1>
+      <h1 className="font-semibold mb-2 tracking-tighter">Bookmarks</h1>
       <p className="mb-8 text-sm text-neutral-600 dark:text-neutral-400">
         different things I find interesting and insightful
       </p>

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import { CustomMDX } from "app/components/mdx";
+import { CustomMDX } from "app/components/customMDX";
 import { formatDate, getBlogPosts } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
-import { Icon } from "app/components/svgIcon";
+import { SvgIcon } from "app/components/svgIcon";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -84,7 +84,7 @@ export default async function Blog({ params }) {
         }}
       />
       <div className="flex items-start justify-between">
-        <h1 className="title font-semibold text-2xl tracking-tighter">
+        <h1 className="title text-xl font-semibold tracking-tighter">
           {post.metadata.title}
         </h1>
         <a
@@ -93,14 +93,17 @@ export default async function Blog({ params }) {
           target="_blank"
           href="/rss"
         >
-          <Icon name="externalUrl" />
-          <p className="ml-2 h-7">rss</p>
+          <p className="mr-2 h-7">rss</p>
+          <SvgIcon name="externalUrl" />
         </a>
       </div>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(new Date(post.metadata.publishedAt), true)}
         </p>
+        <span className="text-neutral-400 text-sm">
+          {post.metadata.tags?.join(", ")}
+        </span>
       </div>
       <article className="prose">
         <CustomMDX source={post.content} />
