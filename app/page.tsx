@@ -1,6 +1,7 @@
 import { BlogPosts } from "app/components/posts";
 import { getDevToPosts } from "./utils";
 import { getBlogPosts } from "./blog/utils";
+import { Icon } from "./components/icon";
 
 export default async function Page() {
   const blogPosts = getBlogPosts();
@@ -11,35 +12,25 @@ export default async function Page() {
       <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
         Valentyn Domanskyi
       </h1>
-      <p className="mb-4">
-        Software engineer, learner and adventurer. I adore nature, love horrors
-        and history, and pretend that I know something about philosophy📚.
+      <p className="mb-8 text-sm text-neutral-600 dark:text-neutral-400">
+        software engineer, learner and adventurer
       </p>
-      <p className="mb-4">
-        Currently, I live in 🇺🇦Volodymyr → 🇺🇦Ternopil → 🇵🇱Krakow and build
-        complex front-ends at Wise Engineering → S-PRO.
-      </p>
-      <p className="mb-4">
-        Sometimes I write about engineering at dev.to and about my thoughts in
-        🇺🇦 telegram channel. You can find my short notes on everything I found
-        useful and insightful at /posts and my notes during dev learning at
-        learning.
-      </p>
-      <h2>Blog</h2>
-      <div className="my-8">
-        <BlogPosts
-          posts={blogPosts.map((post) => ({
-            url: `/blog/${post.slug}`,
-            title: post.metadata.title,
-            publishedAt: post.metadata.publishedAt,
-            language: post.metadata.language || "en",
-            external: false,
-            tags: [],
-          }))}
-        />
+      <div className="mb-8">
+        <span className="flex items-center text-sm gap-1 mb-2">
+          <Icon name="location" className="size-5" />
+          Krakow, Poland
+        </span>
+        <a
+          href="https://s-pro.io/"
+          target="_blank"
+          className="flex items-center text-sm gap-1"
+        >
+          <Icon name="company" className="size-5" />
+          S-PRO
+        </a>
       </div>
-      <h2>Articles</h2>
-      <div className="my-8">
+      <h2 className="font-bold">Articles</h2>
+      <div className="my-4 mb-8">
         <BlogPosts
           posts={devToPosts.map((post) => ({
             url: post.url,
@@ -50,6 +41,29 @@ export default async function Page() {
             external: true,
           }))}
         />
+        <h2 className="font-bold">Blog</h2>
+        <div className="my-4 mb-8">
+          <BlogPosts
+            posts={blogPosts.map((post) => ({
+              url: `/blog/${post.slug}`,
+              title: post.metadata.title,
+              publishedAt: post.metadata.publishedAt,
+              language: post.metadata.language || "en",
+              external: false,
+              tags: post.metadata.tags || [],
+            }))}
+          />
+        </div>
+        <p className="mb-4">
+          Sometimes I write my thoughts in{" "}
+          <a
+            href="https://t.me/newoldonesincerity"
+            target="_blank"
+            className="underline"
+          >
+            🇺🇦 telegram channel
+          </a>
+        </p>
       </div>
     </section>
   );

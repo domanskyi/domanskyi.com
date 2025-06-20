@@ -1,0 +1,4 @@
+- [ ] Make header sticky with white backgroud
+- [ ] Add social links on homepage
+- [ ] Add border radius to favicon
+- [ ] Update fonts

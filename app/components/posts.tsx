@@ -36,11 +36,7 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
             target={post.external ? "_blank" : "_self"}
             rel={post.external ? "noopener noreferrer" : undefined}
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[120px] tabular-nums">
-                {languageMarker[post.language]}
-                {` ${formatDate(new Date(post.publishedAt), false)}`}
-              </p>
+            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
               <div>
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                   {post.title}
@@ -49,6 +45,11 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
                   {post.tags.join(", ")}
                 </span>
               </div>
+
+              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-center gap-1">
+                {formatDate(new Date(post.publishedAt), false)}
+                <span className="text-sm">{languageMarker[post.language]}</span>
+              </p>
             </div>
           </Link>
         ))}

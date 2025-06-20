@@ -7,6 +7,8 @@ type Metadata = {
   summary: string;
   image?: string;
   language?: string;
+  tags?: string[];
+  draft?: boolean;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -21,7 +23,14 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(": ");
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    const trimmedKey = key.trim() as keyof Metadata;
+    if (trimmedKey === "tags") {
+      metadata[trimmedKey] = value.split(",").map((tag) => tag.trim()) as any;
+    } else if (trimmedKey === "draft") {
+      metadata[trimmedKey] = value.trim().toLowerCase() === "true";
+    } else {
+      metadata[trimmedKey] = value as any;
+    }
   });
 
   return { metadata: metadata as Metadata, content };
@@ -51,7 +60,9 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
+  return getMDXData(path.join(process.cwd(), "app", "blog", "posts")).filter(
+    (post) => !post.metadata.draft
+  );
 }
 
 export function formatDate(date: Date, includeRelative = false) {
