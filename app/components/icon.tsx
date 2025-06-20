@@ -67,4 +67,6 @@ const Icon: FC<TIconProps> = ({ name, className }) => {
   }
 };
 
+export default Icon;
+
 export { Icon };

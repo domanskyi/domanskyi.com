@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate, getBlogPosts } from "app/blog/utils";
+import { formatDate } from "app/blog/utils";
 import { FC } from "react";
 
 type TBlogPostsProps = {
