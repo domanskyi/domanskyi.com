@@ -1,6 +1,6 @@
 import { BlogPosts } from "app/components/posts";
 import { getBlogPosts } from "./utils";
-import { Icon } from "app/components/icon";
+import { Icon } from "app/components/svgIcon";
 
 export const metadata = {
   title: "Blog",

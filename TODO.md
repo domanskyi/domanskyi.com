@@ -2,3 +2,4 @@
 - [ ] Add social links on homepage
 - [ ] Add border radius to favicon
 - [ ] Update fonts
+- [ ] Update components naming 

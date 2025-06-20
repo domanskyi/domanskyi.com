@@ -1,7 +1,7 @@
 import { BlogPosts } from "app/components/posts";
 import { getDevToPosts } from "./utils";
 import { getBlogPosts } from "./blog/utils";
-import { Icon } from "./components/icon";
+import { Icon } from "./components/svgIcon";
 
 export default async function Page() {
   const blogPosts = getBlogPosts();
