@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/customMDX";
 import { formatDate, getBlogPosts } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
-import { SvgIcon } from "app/components/svgIcon";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
