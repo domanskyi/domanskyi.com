@@ -2,6 +2,8 @@ import { BlogPosts } from "app/components/blogPosts";
 import { getDevToPosts } from "./utils";
 import { getBlogPosts } from "./blog/utils";
 import { Contacts } from "./components/contacts";
+import { Socials } from "./components/socials";
+import Link from "next/link";
 
 export default async function Page() {
   const blogPosts = getBlogPosts();
@@ -15,7 +17,11 @@ export default async function Page() {
       <p className="mb-8 text-sm text-neutral-600 dark:text-neutral-400">
         software engineer, learner and adventurer
       </p>
-      <Contacts />
+      <div className="flex sm:flex-row flex-col items-start justify-between mb-4">
+        <Contacts />
+        <Socials />
+      </div>
+      <div className="w-full h-[.0625rem] bg-neutral-200 mb-8" />
       <h2 className="text-neutral-600">Articles</h2>
       <div className="my-4">
         <BlogPosts
@@ -44,16 +50,6 @@ export default async function Page() {
         />
       </div>
       <div className="w-full h-[.0625rem] bg-neutral-200 mb-8" />
-      <p className="mb-4">
-        Sometimes I write my thoughts in{" "}
-        <a
-          href="https://t.me/newoldonesincerity"
-          target="_blank"
-          className="underline"
-        >
-          🇺🇦 telegram channel
-        </a>
-      </p>
     </section>
   );
 }

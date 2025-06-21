@@ -1,35 +1,37 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
 ::selection {
   background-color: var(--color-neutral-200);
 }
 
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  --font-sans: Inter, sans-serif;
+  --font-serif: Newsreader, sans-serif;
+  --font-mono: Inter, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+}
+
+@layer base {
+  html .font-serif {
+    font-family: var(--font-serif);
   }
-  html {
-    color-scheme: dark;
+  html .font-sans {
+    font-family: var(--font-sans);
+  }
+  html .font-mono {
+    font-family: var(--font-mono);
   }
 }
 
 html {
   min-width: 360px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 .prose .anchor {

@@ -6,6 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.6",
+    "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",

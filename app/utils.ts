@@ -9,9 +9,13 @@ type TDevToPost = {
 };
 
 export const getDevToPosts = async (): Promise<TDevToPost[]> => {
-  return await (
-    await fetch("https://dev.to/api/articles?username=domanskyi")
-  ).json();
+  try {
+    return await (
+      await fetch("https://dev.to/api/articles?username=domanskyi")
+    ).json();
+  } catch {
+    return [];
+  }
 };
 
 export const cx = (...classes) => classes.filter(Boolean).join(" ");

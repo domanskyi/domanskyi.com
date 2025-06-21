@@ -3,6 +3,8 @@ import { CustomMDX } from "app/components/customMDX";
 import { formatDate, getBlogPosts } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
 import { SvgIcon } from "app/components/svgIcon";
+import Link from "next/link";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -87,15 +89,15 @@ export default async function Blog({ params }) {
         <h1 className="title text-xl font-semibold tracking-tighter">
           {post.metadata.title}
         </h1>
-        <a
+        <Link
           className="flex items-center transition-all text-neutral-600 hover:text-neutral-800 dark:hover:text-neutral-100"
           rel="noopener noreferrer"
           target="_blank"
           href="/rss"
         >
-          <p className="mr-2 h-7">rss</p>
-          <SvgIcon name="externalUrl" />
-        </a>
+          <p className="h-7">rss</p>
+          <ArrowUpRightIcon size={20} weight="light" />
+        </Link>
       </div>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">

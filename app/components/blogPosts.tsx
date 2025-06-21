@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { formatDate } from "app/blog/utils";
 import { FC } from "react";
-import { SvgIcon } from "./svgIcon";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
 type TBlogPostsProps = {
   posts: {
@@ -32,7 +32,7 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
         .map((post) => (
           <Link
             key={post.url}
-            className="flex flex-col space-y-1 mb-4"
+            className="flex flex-col space-y-1 mb-4 filter grayscale hover:grayscale-0 transition-all"
             href={post.url}
             target={post.external ? "_blank" : "_self"}
             rel={post.external ? "noopener noreferrer" : undefined}
@@ -42,10 +42,7 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight flex items-center">
                   {post.title}
                   {post.external && (
-                    <SvgIcon
-                      name="externalUrl"
-                      className="ml-2 transition-all text-neutral-600 hover:text-neutral-800"
-                    />
+                    <ArrowUpRightIcon size={20} weight="light" />
                   )}
                 </p>
                 <span className="text-neutral-400 text-sm">

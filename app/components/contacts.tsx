@@ -1,22 +1,23 @@
 "use client";
 
-import { SvgIcon } from "./svgIcon";
+import Link from "next/link";
+import { EnvelopeSimpleIcon, MapPinIcon } from "@phosphor-icons/react";
 
 const Contacts = () => {
   return (
-    <div className="mb-8">
+    <div>
       <span className="flex items-center text-sm gap-1 mb-2">
-        <SvgIcon name="location" className="size-5" />
+        <MapPinIcon size={20} weight="light" />
         Krakow, Poland
       </span>
-      <a
+      <Link
         href="mailto:mail@valentyndomanskyi.com"
         className="flex items-center text-sm gap-1"
         target="_blank"
       >
-        <SvgIcon name="mail" className="size-5" />
+        <EnvelopeSimpleIcon size={20} weight="light" />
         mail@valentyndomanskyi.com
-      </a>
+      </Link>
     </div>
   );
 };
