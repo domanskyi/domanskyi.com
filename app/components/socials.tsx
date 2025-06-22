@@ -4,16 +4,16 @@ import useOnClickOutside from "app/lib/hooks/useOnClickOutside";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
+  CaretDownIcon,
   GithubLogoIcon,
   GoodreadsLogoIcon,
-  HandPointingIcon,
   InstagramLogoIcon,
   LinkedinLogoIcon,
   PencilSimpleIcon,
-  SteamLogoIcon,
   TelegramLogoIcon,
   TwitterLogoIcon,
 } from "@phosphor-icons/react";
+import { cx } from "app/utils";
 
 const mainSocials = [
   {
@@ -42,11 +42,11 @@ const socials = [
     url: "https://www.goodreads.com/user/show/87156049-valentyn-domanskyi",
     icon: <GoodreadsLogoIcon size={24} className="inline" weight="light" />,
   },
-  {
-    title: "Steam",
-    url: "https://steamcommunity.com/id/domanskyi/",
-    icon: <SteamLogoIcon size={24} className="inline" weight="light" />,
-  },
+  // {
+  //   title: "Steam",
+  //   url: "https://steamcommunity.com/id/domanskyi/",
+  //   icon: <SteamLogoIcon size={24} className="inline" weight="light" />,
+  // },
   {
     title: "Telegram",
     url: "https://t.me/domanskyi",
@@ -92,12 +92,18 @@ const Socials = () => {
         onMouseLeave={() => setDrawerOpened(false)}
         onClick={() => setDrawerOpened(true)}
       >
-        <span className="text-sm h-[1.25rem] flex items-center gap-1 cursor-pointer mt-[.25rem]">
-          <HandPointingIcon size={24} className="inline" weight="light" />
-          <span>other socials</span>
+        <span className="text-sm h-[1.25rem] flex items-center gap-1 cursor-pointer mt-[.25rem] ml-[-0.250rem]">
+          <CaretDownIcon
+            size={24}
+            className={cx(
+              "inline transition-all",
+              drawerOpened ? "transform rotate-180" : ""
+            )}
+            weight="light"
+          />
         </span>
         {drawerOpened && (
-          <div className="absolute left-0 sm:left-auto sm:right-0 top-6  flex flex-col gap-0.5 py-2 bg-white border border-neutral-100 rounded-xs shadow-lg z-10">
+          <div className="absolute right-0 top-6  flex flex-col gap-0.5 py-2 bg-white border border-neutral-100 rounded-xs shadow-lg z-10">
             {socials.map((social) => (
               <Link
                 href={social.url}

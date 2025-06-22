@@ -11,15 +11,15 @@ export default async function Page() {
 
   return (
     <section>
-      <h1 className="font-semibold mb-2 tracking-tighter">
-        Valentyn Domanskyi
-      </h1>
-      <p className="mb-8 text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="flex flex-row items-center justify-between mb-2">
+        <h1 className="font-semibold tracking-tighter">Valentyn Domanskyi</h1>
+        <Socials />
+      </div>
+      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
         software engineer, learner and adventurer
       </p>
       <div className="flex sm:flex-row flex-col items-start justify-between mb-4">
         <Contacts />
-        <Socials />
       </div>
       <div className="w-full h-[.0625rem] bg-neutral-200 mb-8" />
       <h2 className="text-neutral-600">Articles</h2>
