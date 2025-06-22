@@ -7,14 +7,14 @@ const navItems = {
   "/blog": {
     name: "blog",
   },
-  "/bookmarks": {
-    name: "bookmarks",
-  },
+  // "/bookmarks": {
+  //   name: "bookmarks",
+  // },
 };
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-6 tracking-tight navbar py-2">
+    <aside className="-ml-[8px] mb-6 tracking-tight navbar py-2 z-10">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"

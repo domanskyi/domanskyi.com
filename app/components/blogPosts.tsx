@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate } from "app/blog/utils";
+import { formatDate } from "app/lib/utils/date";
 import { FC } from "react";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
@@ -39,10 +39,14 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
               <div>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight flex items-center">
+                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                   {post.title}
                   {post.external && (
-                    <ArrowUpRightIcon size={20} weight="light" />
+                    <ArrowUpRightIcon
+                      size={20}
+                      weight="light"
+                      className="inline"
+                    />
                   )}
                 </p>
                 <span className="text-neutral-400 text-sm">
@@ -50,7 +54,7 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
                 </span>
               </div>
 
-              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-center gap-1 text-nowrap">
+              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-start gap-1 text-nowrap">
                 {formatDate(new Date(post.publishedAt), false)}
               </p>
             </div>

@@ -6,8 +6,8 @@ import { Navbar } from "./components/navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
-import { baseUrl } from "./sitemap";
 import { cx, getHtmlHeadElements } from "./utils";
+import { baseUrl } from "./lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -58,8 +58,8 @@ export default function RootLayout({
       ))}
       <body className="w-full h-full">
         <main className="flex flex-col min-h-screen justify-between ">
-          <div className="antialiased w-full max-w-xl mx-4 mt-8 lg:mx-auto">
-            <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          <div className="antialiased w-full max-w-xl mt-8 mx-auto">
+            <div className="flex-auto min-w-0 mt-6 flex flex-col px-4 md:px-0">
               <Navbar />
               {children}
             </div>

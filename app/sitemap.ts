@@ -1,6 +1,5 @@
 import { getBlogPosts } from "app/blog/utils";
-
-export const baseUrl = "https://valentyndomanskyi.com";
+import { baseUrl } from "./lib/constants";
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
