@@ -4,7 +4,7 @@ import path from "path";
 export type TMetadata = {
   title: string;
   publishedAt: string;
-  summary: string;
+  description: string;
   image?: string;
   language?: string;
   tags?: string[];
@@ -65,8 +65,8 @@ function getMDXData(dir) {
   });
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "app", "blog", "posts")).filter(
-    (post) => !post.metadata.draft
-  );
+export function getBlogPosts(limit?: number) {
+  return getMDXData(path.join(process.cwd(), "app", "blog", "posts"))
+    .filter((post) => !post.metadata.draft)
+    .slice(0, limit);
 }

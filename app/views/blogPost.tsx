@@ -23,7 +23,7 @@ const BlogPost: FC<TBlogPostProps> = ({ post }) => {
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
+            description: post.metadata.description,
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
@@ -53,7 +53,7 @@ const BlogPost: FC<TBlogPostProps> = ({ post }) => {
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(new Date(post.metadata.publishedAt), true)}
         </p>
-        <span className="text-neutral-400 text-sm">
+        <span className="text-neutral-500 text-sm">
           {post.metadata.tags?.join(", ")}
         </span>
       </div>

@@ -4,9 +4,10 @@ import { getBlogPosts } from "./blog/utils";
 import { Contacts } from "./components/contacts";
 import { Socials } from "./components/socials";
 import Link from "next/link";
+import { CaretRightIcon } from "@phosphor-icons/react/dist/ssr";
 
 export default async function Page() {
-  const blogPosts = getBlogPosts();
+  const blogPosts = getBlogPosts(5);
   const devToPosts = await getDevToPosts();
 
   return (
@@ -36,7 +37,15 @@ export default async function Page() {
         />
       </div>
       <div className="w-full h-[.0625rem] bg-neutral-200 mb-8" />
-      <h2 className="text-neutral-600">Blog</h2>
+      <Link
+        href="/blog"
+        className="flex items-center flex-row justify-start text-neutral-600 hover:text-neutral-800 transition-all gap-0 hover:gap-0.5"
+      >
+        <h2>Blog</h2>
+        <div>
+          <CaretRightIcon size={16} width="light" />
+        </div>
+      </Link>
       <div className="my-4">
         <BlogPosts
           posts={blogPosts.map((post) => ({

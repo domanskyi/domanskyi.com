@@ -17,12 +17,7 @@ export async function generateMetadata({ params }) {
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
+  let { title, publishedAt: publishedTime, description, image } = post.metadata;
   let ogImage = image
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
@@ -30,6 +25,15 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
+    keywords: post.metadata.tags,
+    authors: [
+      {
+        name: "Valentyn Domanskyi",
+        url: "https://www.valentyndomanskyi.com/",
+      },
+    ],
+    creator: "Valentyn Domanskyi",
+    publisher: "Valentyn Domanskyi",
     openGraph: {
       title,
       description,

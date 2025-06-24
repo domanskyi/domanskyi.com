@@ -49,7 +49,7 @@ const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
                     />
                   )}
                 </p>
-                <span className="text-neutral-400 text-sm">
+                <span className="text-neutral-500 text-sm">
                   {post.tags.join(", ")}
                 </span>
               </div>
