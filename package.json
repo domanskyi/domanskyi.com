@@ -6,7 +6,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.6",
     "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "^24.0.3",
@@ -14,7 +13,6 @@
     "@types/react-dom": "^19.1.6",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "geist": "1.4.2",
     "next": "^15.3.4",
     "next-mdx-remote": "^5.0.0",
     "postcss": "^8.5.6",

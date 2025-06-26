@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogPosts } from "app/blog/utils";
+import { getBlogPosts } from "app/lib/utils/mdx";
 import { BlogPost } from "app/views/blogPost";
 import { baseUrl } from "app/lib/constants";
 

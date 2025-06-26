@@ -1,8 +1,0 @@
-- [x] Make header sticky with white backgroud
-- [x] Add social links on homepage
-- [ ] Add border radius to favicon
-- [ ] Update fonts
-- [x] Update components naming 
-- [x] Fix # in blog posts
-- [x] Add tags on blog page 
-- [ ] Add tags on metadata

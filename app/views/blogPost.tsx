@@ -3,7 +3,7 @@ import { formatDate } from "app/lib/utils/date";
 import { baseUrl } from "app/lib/constants";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { TBlogPost } from "app/blog/utils";
+import { TBlogPost } from "app/lib/utils/mdx";
 import { FC } from "react";
 
 type TBlogPostProps = {

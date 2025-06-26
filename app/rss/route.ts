@@ -1,5 +1,5 @@
 import { baseUrl } from "app/lib/constants";
-import { getBlogPosts } from "app/blog/utils";
+import { getBlogPosts } from "app/lib/utils/mdx";
 
 export async function GET() {
   let allBlogs = await getBlogPosts();

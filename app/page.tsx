@@ -1,6 +1,6 @@
 import { BlogPosts } from "app/components/blogPosts";
-import { getDevToPosts } from "./utils";
-import { getBlogPosts } from "./blog/utils";
+import { getDevToPosts } from "app/lib/utils/devTo";
+import { getBlogPosts } from "app/lib/utils/mdx";
 import { Contacts } from "./components/contacts";
 import { Socials } from "./components/socials";
 import Link from "next/link";

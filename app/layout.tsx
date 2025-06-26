@@ -1,12 +1,11 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+
 import { Navbar } from "./components/navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
-import { cx, getHtmlHeadElements } from "./utils";
+import { cn, getHtmlHeadElements } from "app/lib/utils/misc";
 import { baseUrl } from "./lib/constants";
 
 export const metadata: Metadata = {
@@ -47,11 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
-        GeistSans.variable,
-        GeistMono.variable
-      )}
+      className={"text-black bg-white dark:text-white dark:bg-black"}
     >
       {headElements.map((element, index) => (
         <element.tag key={index} {...element.attributes} />

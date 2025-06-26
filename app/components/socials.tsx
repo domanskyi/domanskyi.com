@@ -13,7 +13,7 @@ import {
   TelegramLogoIcon,
   TwitterLogoIcon,
 } from "@phosphor-icons/react";
-import { cx } from "app/utils";
+import { cn } from "app/lib/utils/misc";
 
 const mainSocials = [
   {
@@ -95,7 +95,7 @@ const Socials = () => {
         <span className="text-sm h-[1.25rem] flex items-center gap-1 cursor-pointer mt-[.25rem] ml-[-0.250rem]">
           <CaretDownIcon
             size={24}
-            className={cx(
+            className={cn(
               "inline transition-all",
               drawerOpened ? "transform rotate-180" : ""
             )}

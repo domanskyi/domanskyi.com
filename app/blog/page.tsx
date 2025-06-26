@@ -1,5 +1,5 @@
 import { BlogPosts } from "app/components/blogPosts";
-import { getBlogPosts } from "./utils";
+import { getBlogPosts } from "app/lib/utils/mdx";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
