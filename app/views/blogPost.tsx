@@ -3,8 +3,9 @@ import { formatDate } from "app/lib/utils/date";
 import { baseUrl } from "app/lib/constants";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { TBlogPost } from "app/lib/utils/mdx";
+import { getBlogPostsBySeries, TBlogPost } from "app/lib/utils/mdx";
 import { FC } from "react";
+import { BlogPosts } from "app/components/blogPosts";
 
 type TBlogPostProps = {
   post: TBlogPost;
@@ -60,6 +61,26 @@ const BlogPost: FC<TBlogPostProps> = ({ post }) => {
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
+      {post.metadata.series && (
+        <div>
+          <div className="w-full h-[.0625rem] bg-neutral-200 mt-8" />
+          <h2 className="text-neutral-600 mt-4 mb-2">
+            {post.metadata.series} series
+          </h2>
+          <BlogPosts
+            posts={getBlogPostsBySeries(post.metadata.series)
+              .filter(({ slug }) => slug !== post.slug)
+              .map((post) => ({
+                url: `/blog/${post.slug}`,
+                title: post.metadata.title,
+                publishedAt: post.metadata.publishedAt,
+                language: post.metadata.language || "en",
+                external: false,
+                tags: post.metadata.tags || [],
+              }))}
+          />
+        </div>
+      )}
     </section>
   );
 };

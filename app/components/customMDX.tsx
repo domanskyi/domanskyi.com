@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import { transliterate } from "app/lib/utils/misc";
+import { StravaEmbedding } from "./stravaEmbedding";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -67,7 +68,6 @@ function slugify(str) {
 
 function createHeading(level) {
   const Heading = ({ children }) => {
-    console.log(children, slugify(children));
     let slug = slugify(children);
     return React.createElement(
       `h${level}`,
@@ -99,6 +99,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  StravaEmbedding: StravaEmbedding,
 };
 
 export function CustomMDX(props) {

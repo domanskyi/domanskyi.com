@@ -9,6 +9,7 @@ export type TMetadata = {
   language?: string;
   tags?: string[];
   draft?: boolean;
+  series?: string[];
 };
 
 export type TBlogPost = {
@@ -31,6 +32,8 @@ function parseFrontmatter(fileContent: string) {
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
     const trimmedKey = key.trim() as keyof TMetadata;
     if (trimmedKey === "tags") {
+      metadata[trimmedKey] = value.split(",").map((tag) => tag.trim()) as any;
+    } else if (trimmedKey === "series") {
       metadata[trimmedKey] = value.split(",").map((tag) => tag.trim()) as any;
     } else if (trimmedKey === "draft") {
       metadata[trimmedKey] = value.trim().toLowerCase() === "true";
@@ -66,7 +69,28 @@ function getMDXData(dir: string) {
 }
 
 export function getBlogPosts(limit?: number) {
-  return getMDXData(path.join(process.cwd(), "app", "blog", "posts"))
+  const allPosts = getMDXData(path.join(process.cwd(), "app", "blog", "posts"))
     .filter((post) => !post.metadata.draft)
-    .slice(0, limit);
+    .sort((a, b) => {
+      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+        return -1;
+      }
+      return 1;
+    });
+
+  if (!limit) {
+    return allPosts;
+  }
+
+  return allPosts.slice(0, limit);
+}
+
+export function getBlogPostsBySeries(series: string[]) {
+  const allPosts = getBlogPosts();
+
+  return allPosts.filter(
+    (post) =>
+      post.metadata.series &&
+      post.metadata.series.some((s) => series.includes(s))
+  );
 }

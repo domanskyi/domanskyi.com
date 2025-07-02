@@ -22,44 +22,37 @@ const languageMarker: Record<string, string> = {
 const BlogPosts: FC<TBlogPostsProps> = ({ posts }) => {
   return (
     <div>
-      {posts
-        .sort((a, b) => {
-          if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post) => (
-          <Link
-            key={post.url}
-            className="flex flex-col space-y-1 mb-4 filter grayscale hover:grayscale-0 transition-all"
-            href={post.url}
-            target={post.external ? "_blank" : "_self"}
-            rel={post.external ? "noopener noreferrer" : undefined}
-          >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
-              <div>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                  {post.title}
-                  {post.external && (
-                    <ArrowUpRightIcon
-                      size={20}
-                      weight="light"
-                      className="inline"
-                    />
-                  )}
-                </p>
-                <span className="text-neutral-500 text-sm">
-                  {post.tags.join(", ")}
-                </span>
-              </div>
-
-              <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-start gap-1 text-nowrap">
-                {formatDate(new Date(post.publishedAt), false)}
+      {posts.map((post) => (
+        <Link
+          key={post.url}
+          className="flex flex-col space-y-1 mb-4 filter grayscale hover:grayscale-0 transition-all"
+          href={post.url}
+          target={post.external ? "_blank" : "_self"}
+          rel={post.external ? "noopener noreferrer" : undefined}
+        >
+          <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2 justify-between">
+            <div>
+              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+                {post.title}
+                {post.external && (
+                  <ArrowUpRightIcon
+                    size={20}
+                    weight="light"
+                    className="inline"
+                  />
+                )}
               </p>
+              <span className="text-neutral-500 text-sm">
+                {post.tags.join(", ")}
+              </span>
             </div>
-          </Link>
-        ))}
+
+            <p className="text-neutral-600 dark:text-neutral-400 tabular-nums flex items-start gap-1 text-nowrap">
+              {formatDate(new Date(post.publishedAt), false)}
+            </p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
