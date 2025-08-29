@@ -16,7 +16,7 @@ export default function Page() {
       <div className="flex items-start justify-between">
         <h1 className="font-semibold mb-2 tracking-tighter">Blog</h1>
         <Link
-          className="flex items-center transition-all text-neutral-600 hover:text-neutral-800 dark:hover:text-neutral-100"
+          className="flex items-center transition-all text-neutral-200 hover:text-neutral-800 dark:hover:text-neutral-100"
           rel="noopener noreferrer"
           target="_blank"
           href="/rss"

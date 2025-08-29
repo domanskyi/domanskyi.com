@@ -41,7 +41,7 @@ const BlogPost: FC<TBlogPostProps> = ({ post }) => {
           {post.metadata.title}
         </h1>
         <Link
-          className="flex items-center transition-all text-neutral-600 hover:text-neutral-800 dark:hover:text-neutral-100"
+          className="flex items-center transition-all text-neutral-200 hover:text-neutral-800 dark:hover:text-neutral-100"
           rel="noopener noreferrer"
           target="_blank"
           href="/rss"
@@ -54,7 +54,7 @@ const BlogPost: FC<TBlogPostProps> = ({ post }) => {
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(new Date(post.metadata.publishedAt), true)}
         </p>
-        <span className="text-neutral-500 text-sm">
+        <span className="text-neutral-400 text-sm">
           {post.metadata.tags?.join(", ")}
         </span>
       </div>

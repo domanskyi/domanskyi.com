@@ -103,13 +103,13 @@ const Socials = () => {
           />
         </span>
         {drawerOpened && (
-          <div className="absolute right-0 top-6  flex flex-col gap-0.5 py-2 bg-white border border-neutral-100 rounded-xs shadow-lg z-10">
+          <div className="absolute right-0 top-6  flex flex-col gap-0.5 py-2 bg-white dark:bg-black border border-neutral-100 dark:border-neutral-800 rounded-xs shadow-lg z-10">
             {socials.map((social) => (
               <Link
                 href={social.url}
                 key={social.title}
                 target="_blank"
-                className="py-1 px-2 w-[9.375rem] flex flex-row items-center gap-2 text-neutral-600 hover:text-neutral-800 transition-colors text-sm"
+                className="py-1 px-2 w-[9.375rem] flex flex-row items-center gap-2 text-neutral-600 dark:text-white hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors text-sm"
               >
                 {social.icon}
                 {social.title}

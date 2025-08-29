@@ -157,5 +157,5 @@ table {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: #fff;
+  @apply bg-white dark:bg-black;
 }
