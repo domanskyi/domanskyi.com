@@ -5,7 +5,7 @@ import { Navbar } from "./components/navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
-import { cn, getHtmlHeadElements } from "app/lib/utils/misc";
+import { getHtmlHeadElements } from "app/lib/utils/misc";
 import { baseUrl } from "./lib/constants";
 
 export const metadata: Metadata = {
