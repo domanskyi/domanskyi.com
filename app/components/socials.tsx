@@ -47,16 +47,16 @@ const socials = [
   //   url: "https://steamcommunity.com/id/domanskyi/",
   //   icon: <SteamLogoIcon size={24} className="inline" weight="light" />,
   // },
-  {
-    title: "Telegram",
-    url: "https://t.me/domanskyi",
-    icon: <TelegramLogoIcon size={24} weight="light" />,
-  },
-  {
-    title: "Tg Channel",
-    url: "https://t.me/newoldonesincerity",
-    icon: <PencilSimpleIcon size={24} weight="light" />,
-  },
+  // {
+  //   title: "Telegram",
+  //   url: "https://t.me/domanskyi",
+  //   icon: <TelegramLogoIcon size={24} weight="light" />,
+  // },
+  // {
+  //   title: "Tg Channel",
+  //   url: "https://t.me/newoldonesincerity",
+  //   icon: <PencilSimpleIcon size={24} weight="light" />,
+  // },
 ];
 
 const Socials = () => {
@@ -97,7 +97,7 @@ const Socials = () => {
             size={24}
             className={cn(
               "inline transition-all",
-              drawerOpened ? "transform rotate-180" : ""
+              drawerOpened ? "transform rotate-180" : "",
             )}
             weight="light"
           />
