@@ -12,6 +12,7 @@ import {
   PencilSimpleIcon,
   TelegramLogoIcon,
   TwitterLogoIcon,
+  GlobeHemisphereEastIcon,
 } from "@phosphor-icons/react";
 import { cn } from "app/lib/utils/misc";
 
@@ -41,6 +42,13 @@ const socials = [
     title: "Goodreads",
     url: "https://www.goodreads.com/user/show/87156049-valentyn-domanskyi",
     icon: <GoodreadsLogoIcon size={24} className="inline" weight="light" />,
+  },
+  {
+    title: "Nomads.com",
+    url: "https://nomads.com/@domanskyi",
+    icon: (
+      <GlobeHemisphereEastIcon size={24} className="inline" weight="light" />
+    ),
   },
   // {
   //   title: "Steam",
