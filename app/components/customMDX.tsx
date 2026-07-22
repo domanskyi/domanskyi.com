@@ -55,8 +55,24 @@ function Code({ children, ...props }) {
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
+function getTextContent(node) {
+  if (node == null || typeof node === "boolean") {
+    return "";
+  }
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+  if (Array.isArray(node)) {
+    return node.map(getTextContent).join("");
+  }
+  if (React.isValidElement(node)) {
+    return getTextContent((node.props as { children?: unknown }).children);
+  }
+  return "";
+}
+
 function slugify(str) {
-  return transliterate(str)
+  return transliterate(getTextContent(str))
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
@@ -79,7 +95,7 @@ function createHeading(level) {
           className: "anchor",
         }),
       ],
-      children
+      children,
     );
   };
 
